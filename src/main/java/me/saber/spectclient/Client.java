@@ -43,6 +43,8 @@ public class Client
 
         modManager = new ModManager();
         logger.info("ModManager Initialized");
+
+
     }
 
     @EventHandler

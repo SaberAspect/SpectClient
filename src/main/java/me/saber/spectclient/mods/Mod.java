@@ -99,7 +99,6 @@ public class Mod {
     protected void onDisable(){
         MinecraftForge.EVENT_BUS.unregister(this);
     }
-    public void onRender(){}
     public void onUpdate(){}
     public void onKeyPress(){}
 }

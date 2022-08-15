@@ -2,7 +2,6 @@ package me.saber.spectclient.mods;
 
 import me.saber.spectclient.mods.movement.Sprint;
 import me.saber.spectclient.mods.render.FullBright;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import java.util.ArrayList;
 
@@ -50,7 +49,6 @@ public class ModManager {
         for(Mod mods : modules)
             if(mods.isToggled()) {
                 mods.onUpdate();
-
             }
     }
 

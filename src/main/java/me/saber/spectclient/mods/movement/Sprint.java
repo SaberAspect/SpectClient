@@ -3,7 +3,11 @@ package me.saber.spectclient.mods.movement;
 import me.saber.spectclient.mods.Category;
 import me.saber.spectclient.mods.Mod;
 import me.saber.spectclient.utils.Refs;
+import net.minecraft.potion.Potion;
 import org.lwjgl.input.Keyboard;
+
+import java.util.Objects;
+
 
 /**
  * @author SaberAspect
@@ -18,12 +22,20 @@ public class Sprint extends Mod {
     }
 
 
-
     @Override
-    public void onUpdate()
-    {
+    public void onUpdate()  {
 
-        Refs.mc.player.setSprinting(true);
+        if(Refs.mc.player.isCreative()) {
+            if(!Refs.mc.player.isPotionActive(Objects.requireNonNull(Potion.getPotionById(2))) || !Refs.mc.player.collided)
+            {
+                Refs.mc.player.setSprinting(true);
+
+            }
+        }
+       else if(Refs.mc.player.getFoodStats().getFoodLevel() > 6 && Refs.mc.player.onGround &&  !Refs.mc.player.isPotionActive(Objects.requireNonNull(Potion.getPotionById(2))) &&
+        !Refs.mc.player.collidedHorizontally && Refs.mc.player.lastTickPosX != Refs.mc.player.posX) {
+
+            Refs.mc.player.setSprinting(true);
+        }
     }
-
 }
